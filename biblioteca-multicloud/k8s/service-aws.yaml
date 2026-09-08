@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: biblioteca
+  namespace: biblioteca-t3
+  annotations:
+    service.beta.kubernetes.io/aws-load-balancer-scheme: internet-facing
+    service.beta.kubernetes.io/aws-load-balancer-nlb-target-type: ip
+    service.beta.kubernetes.io/aws-load-balancer-attributes: load_balancing.cross_zone.enabled=true
+spec:
+  type: LoadBalancer
+  loadBalancerClass: service.k8s.aws/nlb
+  selector:
+    app: biblioteca
+  ports:
+    - port: 80
+      targetPort: 8080

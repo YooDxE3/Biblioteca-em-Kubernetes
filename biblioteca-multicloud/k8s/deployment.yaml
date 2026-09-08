@@ -1,0 +1,63 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: biblioteca
+  namespace: biblioteca-t3
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: biblioteca
+  template:
+    metadata:
+      labels:
+        app: biblioteca
+    spec:
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 10001
+        runAsGroup: 10001
+        seccompProfile:
+          type: RuntimeDefault
+      containers:
+        - name: biblioteca
+          image: biblioteca:1.0
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http
+              containerPort: 8080
+          env:
+            - name: API_SECURITY_TOKEN_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: biblioteca-secret
+                  key: jwt-secret
+          resources:
+            requests:
+              cpu: 250m
+              memory: 384Mi
+            limits:
+              cpu: "1"
+              memory: 768Mi
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop: [ALL]
+          startupProbe:
+            httpGet:
+              path: /login
+              port: http
+            periodSeconds: 5
+            failureThreshold: 60
+          readinessProbe:
+            httpGet:
+              path: /login
+              port: http
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /login
+              port: http
+            periodSeconds: 20

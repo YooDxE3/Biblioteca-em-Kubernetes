@@ -1,0 +1,46 @@
+﻿{
+    "data":  "2026-09-07T22:27:12.4936571-03:00",
+    "url":  "http://127.0.0.1:18080",
+    "testes":  [
+                   {
+                       "teste":  "Pagina de login",
+                       "aprovado":  true,
+                       "detalhe":  "HTTP 200"
+                   },
+                   {
+                       "teste":  "API sem token bloqueada",
+                       "aprovado":  true,
+                       "detalhe":  "HTTP 401"
+                   },
+                   {
+                       "teste":  "Login JWT",
+                       "aprovado":  true,
+                       "detalhe":  "Token recebido; valor omitido"
+                   },
+                   {
+                       "teste":  "Cadastrar autor",
+                       "aprovado":  true,
+                       "detalhe":  "Autor ID 1"
+                   },
+                   {
+                       "teste":  "Cadastrar livro",
+                       "aprovado":  true,
+                       "detalhe":  "Livro ID 1"
+                   },
+                   {
+                       "teste":  "Consultar autores",
+                       "aprovado":  true,
+                       "detalhe":  "Registro localizado"
+                   },
+                   {
+                       "teste":  "Consultar livros",
+                       "aprovado":  true,
+                       "detalhe":  "Registro localizado"
+                   },
+                   {
+                       "teste":  "Login JWT de usuario comum",
+                       "aprovado":  true,
+                       "detalhe":  "Token recebido; valor omitido"
+                   }
+               ]
+}

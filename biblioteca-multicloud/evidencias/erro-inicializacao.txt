@@ -1,0 +1,9 @@
+﻿Falha em .\tools\kind.exe (codigo 1). Consulte o log acima.
+No C:\Users\andre\Documents\Codex\2026-09-07\nao\outputs\biblioteca-multicloud\scripts\iniciar-local.ps1:12 
+caractere:21
++ ... digo -ne 0){throw "Falha em $Programa (codigo $codigo). Consulte o lo ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : OperationStopped: (Falha em .\tool...te o log acima.:String) [], RuntimeException
+    + FullyQualifiedErrorId : Falha em .\tools\kind.exe (codigo 1). Consulte o log acima.
+ 
+

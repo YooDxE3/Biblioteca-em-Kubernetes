@@ -1,0 +1,2 @@
+﻿exec /usr/local/bin/entrypoint: exec format error
+exec /usr/local/bin/entrypoint: exec format error
